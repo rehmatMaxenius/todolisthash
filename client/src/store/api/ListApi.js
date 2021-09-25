@@ -1,7 +1,8 @@
 
 import axios from 'axios';
 
-const url = 'http://localhost:5000/lists';
+// const url = 'http://localhost:5000/lists';
+const url = 'https://todolisthash.herokuapp.com/lists';
 
 export const fetchLists = () => axios.get(url);
 
