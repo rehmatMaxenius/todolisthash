@@ -24,8 +24,20 @@ code {
   white-space: nowrap;
 }
 .selectedList{
-  background-color: grey;
+  background-color: navy;
+}
+.selectedList td{
+  color: #fff;
 }
 .cursor-pointer	{
   cursor: pointer;
+}
+.edit-btn{
+  color:royalblue;
+}
+.delete-btn{
+  color:red;
+}
+.success{
+  color:green;
 }

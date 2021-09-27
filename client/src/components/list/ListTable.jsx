@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { deleteList, updateListId } from '../../store/actions/ListActions';
 import { updateTodoId } from '../../store/actions/TodoActions';
@@ -37,8 +37,8 @@ const ListTable = () => {
                 {lists && lists.map((list) => (
                     <tr key={list._id} className={todoId===list._id ? 'selectedList' : ''}>
                         <td onClick={() => setTodoId(list._id) } className="cursor-pointer">{list.name}</td>
-                        <td><FaEdit className="cursor-pointer" onClick={ () => setListId(list._id) } /></td>
-                        <td><FaTrashAlt className="cursor-pointer" onClick={() => dispatch(deleteList(list._id)) }/></td>
+                        <td><FaEdit className="cursor-pointer edit-btn" onClick={ () => setListId(list._id) } /></td>
+                        <td><FaTimes className="cursor-pointer delete-btn" onClick={() => dispatch(deleteList(list._id)) }/></td>
                     </tr>
                 ))}
                 </tbody>

@@ -3,7 +3,6 @@ import moment from 'moment'
 import { Table } from 'react-bootstrap'
 import { FaCheck } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { getTodo } from '../../store/actions/TodoActions';
@@ -41,11 +40,11 @@ const TodoTable = ({todos}) => {
                 
                 {todos && todos.map((todo) => (
                     <tr key={todo._id}>
-                    <td onClick={() => dispatch(updateTodoStatus(todo._id))}>{todo.status ? <FaCheck className="cursor-pointer" /> : <FaTimes className="cursor-pointer" />}</td>
+                    <td onClick={() => dispatch(updateTodoStatus(todo._id))}>{todo.status ? <FaCheck className="cursor-pointer success" /> : <FaTimes className="cursor-pointer delete-btn" />}</td>
                     <td>{todo.title}</td>
                     <td>{moment(todo.date).format('MMM DD, YYYY')}</td>
-                    <td><FaEdit onClick={ () => setTodoDataUpdateIdState(todo._id) } className="cursor-pointer" /></td>
-                    <td><FaTrashAlt  onClick={() => dispatch(deleteTodo(todo._id)) } className="cursor-pointer" /></td>
+                    <td><FaEdit onClick={ () => setTodoDataUpdateIdState(todo._id) } className="edit-btn cursor-pointer" /></td>
+                    <td><FaTimes onClick={() => dispatch(deleteTodo(todo._id)) } className="delete-btn cursor-pointer" /></td>
                     </tr>
                 ))}
                 </tbody>
