@@ -25,7 +25,7 @@ const TodoTable = ({todos}) => {
     }, [dispatch, currentUpdateTodoId])
     return (
         <React.Fragment>
-            {todos &&
+            {todos.length &&
             <Table className="list-table mx-4" striped hover size="sm">
                 <thead>
                 <tr>
