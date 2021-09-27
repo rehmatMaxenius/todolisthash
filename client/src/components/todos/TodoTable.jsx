@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import moment from 'moment'
 import { Table } from 'react-bootstrap'
 import { FaCheck } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
@@ -42,7 +43,7 @@ const TodoTable = ({todos}) => {
                     <tr key={todo._id}>
                     <td onClick={() => dispatch(updateTodoStatus(todo._id))}>{todo.status ? <FaCheck className="cursor-pointer" /> : <FaTimes className="cursor-pointer" />}</td>
                     <td>{todo.title}</td>
-                    <td>{todo.date}</td>
+                    <td>{moment(todo.date).format('MMM DD, YYYY')}</td>
                     <td><FaEdit onClick={ () => setTodoDataUpdateIdState(todo._id) } className="cursor-pointer" /></td>
                     <td><FaTrashAlt  onClick={() => dispatch(deleteTodo(todo._id)) } className="cursor-pointer" /></td>
                     </tr>
